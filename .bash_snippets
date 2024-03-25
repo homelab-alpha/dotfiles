@@ -1,0 +1,316 @@
+# Snippets
+
+# Funciones:
+# Syntax: function <function_name>() {}
+
+# Archive Files and Folders
+# Description: Create a .tar.gz archive using gzip for compression
+# Usage example: targzip /path/to/folder
+function targzip() {
+  if [ -z "$1" ]; then
+    echo "Usage: targzip <directory or file>"
+    return 1
+  fi
+
+  local source="$1"
+  local timestamp=$(date +'%b %d, %Y - %H%M%S')
+  local tmpFile="${source%/} [$timestamp].tar"
+  local compressedFile="$tmpFile.gz"
+
+  # tar --create --file="$tmpFile" --verify --verbose "$source" || return 1
+  tar --create --file="$tmpFile" --verify "$source" || return 1
+
+  # Determine the correct 'stat' command for the platform
+  local size
+  if stat --version &>/dev/null; then
+    size=$(stat -c%s "$tmpFile")
+  elif stat -f%z "$tmpFile" &>/dev/null; then
+    size=$(stat -f%z "$tmpFile")
+  else
+    echo "Error: Unable to determine file size."
+    return 1
+  fi
+
+  local cmd="gzip"
+
+  echo ""
+  echo "Compressing .tar using $cmd."
+  # $cmd "$tmpFile" --best --rsyncable --verbose || return 1
+  $cmd "$tmpFile" --best --rsyncable || return 1
+  [ -f "$tmpFile" ] && rm "$tmpFile"
+
+  echo ""
+  echo "Verifying $compressedFile using $cmd."
+  # $cmd -t "$compressedFile" --verbose || return 1
+  $cmd -t "$compressedFile" || return 1
+
+  echo ""
+  echo "$compressedFile has been successfully created and verified."
+  chmod 644 "$compressedFile"
+}
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+# Archive Files and Folders
+# Description: Create a .tar.zip archive, using `zip` for compression
+# Usage example: tarzip /path/to/folder
+function tarzip() {
+  local input_folder="$1"
+  local timestamp="$(date +'%b %d, %Y - %H%M%S')"
+  local tmp_file="${input_folder%/} [$timestamp].tar"
+  local zip_file="${input_folder%/} [$timestamp].tar.zip"
+
+  # Create a .tar archive
+  echo ""
+  echo "Creating .tar archive..."
+  # tar --create --file="$tmp_file" --verify --verbose "$input_folder" || return 1
+  tar --create --file="$tmp_file" --verify "$input_folder" || return 1
+
+  # Get the size of the .tar file
+  local size=$(stat -c "%s" "$tmp_file" 2>/dev/null)
+  [ -z "$size" ] && size=$(stat -f "%z" "$tmp_file" 2>/dev/null)
+
+  # Compress the .tar archive using zip
+  local cmd="zip"
+  echo ""
+  echo "Compressing .tar using $cmd..."
+  # $cmd "$zip_file" --encrypt --recurse-paths -9 --verbose "$tmp_file" || return 1
+  $cmd "$zip_file" --encrypt --recurse-paths -9 "$tmp_file" || return 1
+  [ -f "$tmp_file" ] && rm "$tmp_file"
+
+  # Verify the zip archive
+  echo ""
+  echo "Verifying $zip_file using $cmd..."
+  # $cmd "$zip_file" --test --verbose || return 1
+  $cmd "$zip_file" --test || return 1
+
+  echo ""
+  echo "$zip_file has been successfully created and verified."
+  chmod 644 "$zip_file"
+}
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+# Archive Extractor
+# Description: Extracts archived files or mounts disk images
+# Usage example: ex /path/to/folder
+function ex() {
+  if [ -f "$1" ]; then
+    case "$1" in
+    *.tar.bz2) tar -jxvf "$1" ;;
+    *.tar.gz) tar -zxvf "$1" ;;
+    *.bz2) bunzip2 "$1" ;;
+    *.dmg) hdiutil mount "$1" ;;
+    *.gz) gunzip "$1" ;;
+    *.tar) tar -xvf "$1" ;;
+    *.tbz2) tar -jxvf "$1" ;;
+    *.tgz) tar -zxvf "$1" ;;
+    *.zip | *.ZIP) unzip "$1" ;;
+    *.pax) cat "$1" | pax -r ;;
+    *.pax.Z) uncompress "$1" --stdout | pax -r ;;
+    *.rar) unrar x "$1" ;;
+    *.Z) uncompress "$1" ;;
+    *) echo "$1 cannot be extracted/mounted via ex()" ;;
+    esac
+  else
+    echo "$1 is not a valid file"
+  fi
+}
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+# Copy and Go
+# Description: Copies a file or directory and enters it
+# Example usage: cpg source_file.txt destination_directory/
+function cpg() {
+  if [ $# -ne 2 ]; then
+    echo "Usage: cpg source destination"
+    return 1
+  fi
+
+  local source="$1"
+  local destination="$2"
+
+  if [ -d "$source" ]; then
+    if [ -d "$destination" ]; then
+      cp -r "$source" "$destination" && cd "$destination/$(basename "$source")"
+    else
+      echo "Destination is not a directory: $destination"
+      return 1
+    fi
+  else
+    cp "$source" "$destination"
+  fi
+}
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+# Make and Go
+# Description: Create a new directory and enter it
+function mkdirg() {
+  if [ $# -ne 1 ]; then
+    echo "Usage: mkdirg directory_name"
+    return 1
+  fi
+
+  local directory_name="$1"
+
+  if [ -d "$directory_name" ]; then
+    echo "Directory already exists: $directory_name"
+    return 1
+  fi
+
+  mkdir -p "$directory_name" && cd "$directory_name"
+}
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+# Move and Go
+# Description: Move a file or directory and enter it
+# Example usage: mvg source_file.txt destination_directory/
+function mvg() {
+  if [ $# -ne 2 ]; then
+    echo "Usage: mvg source destination"
+    return 1
+  fi
+
+  local source="$1"
+  local destination="$2"
+
+  if [ -d "$source" ]; then
+    if [ -d "$destination" ]; then
+      mv "$source" "$destination" && cd "$destination/$(basename "$source")"
+    else
+      echo "Destination is not a directory: $destination"
+      return 1
+    fi
+  else
+    mv "$source" "$destination"
+  fi
+}
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+# UP
+# Description: Goes up a specified number of directories ( i.e. up 4 )
+# Example usage: up 2 go up 2 directories
+function up() {
+  local levels=${1:-1} # Set the default level to 1 if not specified
+  local target=""
+
+  for ((i = 1; i <= levels; i++)); do
+    target="../$target"
+  done
+
+  if [ -z "$target" ]; then
+    target=".."
+  fi
+
+  cd "$target" || return 1 # Go to the target directory or return an error code if it fails
+}
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+# Curl
+# Description: Use Curl for website health check
+# Example usage: health-check example.com
+function health-check() {
+  green="\e[32m"
+  red="\e[31m"
+  end="\e[0m"
+
+  if [ -z "$1" ]; then
+    echo "Please provide a URL to check."
+    return 1
+  fi
+
+  url="$1"
+
+  protocols=("https" "http")
+
+  for protocol in "${protocols[@]}"; do
+    if curl --head --silent --show-error --fail --location "$protocol://$url"; then
+      echo -e "$protocol://$url is ${green}UP${end} and running."
+      return 0
+    fi
+  done
+
+  echo -e "Both https://$url and http://$url are ${red}DOWN${end}"
+  return 1
+}
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+# Network
+# Description: network pings a DNS server in the following order:
+# Internal DNS servers: Adguard Home and External: Quad9 DNS servers.
+function network() {
+  GREEN="\e[32m"
+  RED="\e[31m"
+  END="\e[0m"
+  STAMP="$(date +'[%b %d, %Y - %H%M%S]')"
+
+  function log_message() {
+    local message="$1"
+    echo -e "$STAMP $message"
+  }
+
+  function check_ping() {
+    local host="$1"
+    if ping -c 1 "$host" >/dev/null; then
+      return 0
+    else
+      return 1
+    fi
+  }
+
+  log_message "Checking primary DNS server (192.168.3.2)"
+  if check_ping "192.168.3.2"; then
+    log_message "Primary DNS server is ${GREEN}UP${END} and running."
+  else
+    log_message "Primary DNS server seem to be ${RED}DOWN${END}"
+    log_message "Checking secondary DNS server (192.168.3.3)"
+    if check_ping "192.168.3.3"; then
+      log_message "Secondary DNS server is ${GREEN}UP${END} and running."
+    else
+      log_message "Secondary DNS server seem to be ${RED}DOWN${END}"
+    fi
+  fi
+
+  log_message "Checking internet connectivity (ping google.com)"
+  if check_ping "google.com"; then
+    log_message "Network is ${GREEN}UP${END} and running."
+  else
+    log_message "The network seem to be ${RED}DOWN${END}"
+    log_message "Checking external DNS servers..."
+    if check_ping "9.9.9.9"; then
+      log_message "ping to 9.9.9.9 works, we have a DNS failure."
+    else
+      log_message "ping to 9.9.9.9 failed, now ping to 149.112.112.112"
+      if check_ping "149.112.112.112"; then
+        log_message "ping to 149.112.112.112 also failed, the network has an issue!"
+        ifconfig >>"DNS failure interface ${STAMP}.txt"
+      fi
+    fi
+  fi
+}
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
