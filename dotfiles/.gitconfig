@@ -1,0 +1,65 @@
+################################################################################
+#                                                                              #
+#        ██████╗ ██╗████████╗ ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗    #
+#       ██╔════╝ ██║╚══██╔══╝██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝    #
+#      ╔██║  ███╗██║   ██║   ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗   #
+#      ║██║   ██║██║   ██║   ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║   #
+#    ██║╚██████╔╝██║   ██║   ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝   #
+#    ╚═╝ ╚═════╝ ╚═╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝    #
+#                                                                              #
+################################################################################
+
+[user]
+	name = your name
+	email = your@email.com
+	username = your username
+	# signingkey =
+	# author.name =
+	# author.email =
+	# committer.name =
+	# committer.email =
+
+[commit]
+	# gpgsign = true
+
+[core]
+	autocrlf = input
+	editor = nano
+	whitespace = fix
+
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+
+[alias]
+	br = branch
+	ch = checkout
+	co = commit
+	st = status
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	pushfwl = push --force-with-lease
+
+[credential]
+	helper = cache --timeout=3600
+
+[push]
+	default = simple
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	frag = magenta bold
+	meta = yellow bold
+	new = green bold
+	old = red bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = red
+
+[maintenance]

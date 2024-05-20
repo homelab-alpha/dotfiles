@@ -1,0 +1,11 @@
+{
+  "threshold": 0,
+  "reporters": [
+    "consoleFull"
+  ],
+  "ignore": [
+    "**/github/workspace/install.sh**",
+    "**/tmp/lint/install.sh**"
+  ],
+  "absolute": true
+}
