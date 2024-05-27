@@ -2,8 +2,10 @@
 
 [![Super-Linter](https://github.com/homelab-alpha/dotfiles/actions/workflows/super-linter.yml/badge.svg)](https://github.com/homelab-alpha/dotfiles/actions/workflows/super-linter.yml)
 
-Welcome to the Homelab-Alpha dotfiles repository. This is the source for
-[Homelab-Alpha - Dotfiles].
+Welcome to the Homelab-Alpha Dotfiles Repository!
+
+For all related documentation and more information about this repository, please
+visit [Homelab-Alpha/Dotfiles].
 
 ## Provide feedback
 
@@ -53,7 +55,7 @@ No external contributions are currently being accepted for this project.
 &copy; 2024 Homelab-Alpha and its repositories are licensed under the terms of
 the [license] agreement.
 
-[Homelab-Alpha - Dotfiles]: https://homelab-alpha.nl/dotfiles
+[Homelab-Alpha/Dotfiles]: https://homelab-alpha.nl/dotfiles
 [Community]: https://github.com/homelab-alpha/dotfiles/discussions
 [Bug report]:
   https://github.com/homelab-alpha/dotfiles/issues/new?&template=bug_report.md
