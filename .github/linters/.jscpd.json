@@ -4,8 +4,8 @@
     "consoleFull"
   ],
   "ignore": [
-    "**/github/workspace/install.sh**",
-    "**/tmp/lint/install.sh**"
+    "**/github/workspace/dotfiles_installer.sh**",
+    "**/tmp/lint/dotfiles_installer.sh**"
   ],
   "absolute": true
 }
