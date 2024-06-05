@@ -1,5 +1,29 @@
 #!/bin/bash
 
+# Script Name: dotfiles_installer.sh
+# Author: GJS (homelab-alpha)
+# Date: 2024-06-05T08:43:12+02:00
+# Version: 1.0.1
+
+# Description:
+# This script manages the installation and uninstallation of dotfiles. It backs
+# up existing dotfiles before installing new ones and can restore backups during
+# uninstallation. The script checks if Git is installed, as it is necessary for
+# managing dotfiles repositories.
+
+# Usage:
+# Options and arguments:
+# - The script presents a menu to choose between installing and uninstalling dotfiles.
+# - Follow the on-screen prompts to complete the desired action.
+
+# Examples:
+# - To install dotfiles: Run the script and select "Install dotfiles".
+# - To uninstall dotfiles: Run the script and select "Uninstall dotfiles".
+
+# Notes:
+# - Ensure that Git is installed on your system before running the script.
+# - The script assumes that the dotfiles directory is located at $HOME/dotfiles.
+
 # Function to check if Git is installed
 check_git() {
     if ! command -v git &>/dev/null; then
