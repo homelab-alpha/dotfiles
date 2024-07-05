@@ -47,6 +47,12 @@ alias status-ufw-n="sudo ufw status numbered"
 ##### Description:
 alias rm-bash_history="rm $HOME/.bash_history"
 
+##### Boxes:
+##### Description:
+alias boxes-export="virsh dumpxml"
+alias boxes-import="virsh define --file"
+alias boxes-ls="virsh -c qemu:///session list --all"
+
 ##### Change Directory:
 ##### Description:
 alias ..="cd .."
@@ -125,6 +131,10 @@ alias ifconfigco="curl ifconfig.co/json"
 ##### Lnav:
 ##### Description:
 alias lnav="sudo lnav"
+
+##### Locate:
+##### Description:
+alias update-locate="sudo updatedb"
 
 ##### Logs:
 ##### Description:
@@ -206,14 +216,16 @@ alias tt="clear && tree -aAcDgpRu"
 
 ##### Tmux:
 ##### Description: If not inside a tmux session, and if no session is started, start a new session
-alias tm="tmux attach -t tmux-session || tmux new -s tmux-session"
+alias ts="tmux attach -t tmux-session || tmux new -s tmux-session"
 alias th="tmux attach -t th-session || tmux new -s th-session \; split-window -h \; select-pane -t 1"
-alias tn="tmux attach -t tn-session || tmux new -s tn-session \; split-window -v \; split-window -h \; select-pane -t 1 \; split-window -h \; select-pane -t 1"
 alias tv="tmux attach -t tv-session || tmux new -s tv-session \; split-window -v \; select-pane -t 1"
-alias thk="tmux kill-session -t th-session"
-alias tmk="tmux kill-session -t tm-session"
-alias tnk="tmux kill-session -t tn-session"
-alias tvk="tmux kill-session -t tv-session"
+alias tn="tmux attach -t tn-session || tmux new -s tn-session \; split-window -v \; split-window -h \; select-pane -t 1 \; split-window -h \; select-pane -t 1"
+alias tm="tmux attach -t temp-session || tmux new -s temp-session \; split-window -h \; select-pane -t 1"
+alias ts-kill="tmux kill-session -t tm-session"
+alias th-kill="tmux kill-session -t th-session"
+alias tm-kill="tmux kill-session -t temps-session"
+alias tn-kill="tmux kill-session -t tn-session"
+alias tv-kill="tmux kill-session -t tv-session"
 
 ##### Ubuntu Pro
 ##### Description:
@@ -221,6 +233,10 @@ alias pro-fix="pro fix CVE-"
 alias pro-livepatch="canonical-livepatch status"
 alias pro-security-status="pro security-status"
 alias pro-status="pro status"
+
+##### Visual Studio Code
+##### Description:
+alias vscode-export="code --list-extensions | xargs -L 1 echo code --install-extension"
 
 ##### Wget:
 ##### Description:
@@ -261,10 +277,20 @@ alias dnf-installlist="dnf list --installed"
 alias dnf-list="dnf list --upgrades"
 alias dnf-minimal-upgrade="sudo dnf upgrade-minimal"
 alias dnf-search="dnf search"
+alias dnf-rm-old-kernel="sudo dnf remove --oldinstallonly --setopt installonly_limit=2 kernel"
+
+##### Dotfiles:
+##### Description:
+alias git-install-dotfiles="git clone https://github.com/homelab-alpha/dotfiles.git && cd dotfiles && echo 1 | ./dotfiles_installer.sh"
+alias uninstall-dotfiles="cd dotfiles && echo 1 | ./dotfiles_installer.sh"
 
 ##### Hugo
 ##### Description:
 alias hugo-up="hugo server --disableFastRender --noHTTPCache --buildDrafts"
+
+##### OpenSSL
+##### Description:
+alias git-install-openssl="git clone https://github.com/homelab-alpha/openssl.git && cd openssl && ./openssl_installer.sh && cd && exec bash"
 
 ##### Scripts:
 ##### Description:
@@ -275,3 +301,7 @@ alias install-jetbrains-mono="$bash_script_dir/install_latest_jetbrains_mono.sh"
 alias new-gpg-key-pair="$bash_script_dir/gpg_keygen_script.sh"
 alias new-ssh-key-pair="$bash_script_dir/ssh_keygen_script.sh"
 alias userid="$bash_script_dir/user_accounts_info.sh"
+
+##### Trim
+##### Description:
+alias trim="sudo fstrim --verbose"
