@@ -11,7 +11,7 @@ export PATH=$PATH:/usr/local/go/bin
 export GPG_TTY=$(tty)
 
 # Hugo
-export PATH=$PATH:/usr/local/hugo
+export PATH=$PATH:/usr/local/hugo-extended
 
 # Set editor for nano
 export EDITOR=nano
