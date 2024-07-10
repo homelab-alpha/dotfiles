@@ -109,23 +109,18 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 
-    alias reload='. ~/.bashrc'
-
-    alias ..='cd ..'
-
-    alias c='clear'
-
+    alias reload=". ~/.bashrc"
+    alias ..="cd .."
+    alias c="clear"
     alias cp="cp --recursive --preserve=all --verbose"
     alias mv="mv --no-clobber --verbose"
+    alias l="clear && ls --almost-all -C --ignore='lost+found'"
+    alias ll="clear && ls --almost-all -C --no-group -l --ignore='lost+found'"
+    alias ls="clear && ls --color=auto --human-readable --sort='extension' --ignore='lost+found'"
+    alias t="clear && tree -aAc"
+    alias tt="clear && tree -aAcDgpRu"
 
-    alias l="clear && ls --almost-all -C --ignore="lost+found""
-    alias ll="clear && ls --almost-all -C --no-group -l --ignore="lost+found""
-    alias ls="clear && ls --color=auto --human-readable --sort="extension" --ignore="lost+found""
-
-    alias t='clear && tree -aAc'
-    alias tt='clear && tree -aAcDgpRu'
-
-    # man Using Color with less
+    # Less colors for man pages
     export LESS_TERMCAP_mb=$'\E[1;31m'  # begin blink
     export LESS_TERMCAP_md=$'\E[1;94m'  # begin bold
     export LESS_TERMCAP_me=$'\E[0m'     # reset bold/blink
@@ -134,6 +129,20 @@ if [ -x /usr/bin/dircolors ]; then
     export LESS_TERMCAP_us=$'\E[1;32m'  # begin underline
     export LESS_TERMCAP_ue=$'\E[0m'     # reset underline
 
+    # Take advantage of $LS_COLORS for completion as well
+    LS_COLORS="di=36:ln=35:so=31:pi=33:ex=32:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+
+fi
+
+# Enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
 
 # Alias definitions.
@@ -155,15 +164,4 @@ fi
 # ~/.bash_exports, instead of adding them here directly.
 if [ -f ~/.bash_snippets ]; then
     . ~/.bash_snippets
-fi
-
-# Enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-        . /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
-    fi
 fi

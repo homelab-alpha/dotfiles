@@ -40,25 +40,26 @@ bindkey '^[[H' beginning-of-line               # home
 bindkey '^[[F' end-of-line                     # end
 bindkey '^[[Z' undo                            # shift + tab undo last action
 
-# # enable completion features
- autoload -Uz compinit
- compinit -d ~/.cache/zcompdump
- zstyle ':completion:*:*:*:*:*' menu select
- zstyle ':completion:*' auto-description 'specify: %d'
- zstyle ':completion:*' completer _expand _complete
- zstyle ':completion:*' format 'Completing %d'
- zstyle ':completion:*' group-name ''
- zstyle ':completion:*' list-colors ''
- zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
- zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
- zstyle ':completion:*' rehash true
- zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
- zstyle ':completion:*' use-compctl false
- zstyle ':completion:*' verbose true
- zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+# enable completion features
+autoload -Uz compinit
+compinit -d ~/.cache/zcompdump
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # History configurations
 HISTFILE=~/.bash_history
+HISTTIMEFORMAT="%d/%m/%y %T " # add timestamp to each command in history
 #HISTSIZE=1000
 #SAVEHIST=2000
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
@@ -156,11 +157,11 @@ if [ "$color_prompt" = yes ]; then
         ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
         ZSH_HIGHLIGHT_STYLES[global-alias]=fg=green,bold
         ZSH_HIGHLIGHT_STYLES[precommand]=fg=red,underline,bold
-        ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=blue,bold
+        ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=yellow,bold
         ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green,underline
         ZSH_HIGHLIGHT_STYLES[path]=bold
-        ZSH_HIGHLIGHT_STYLES[path_pathseparator]=
-        ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=
+        ZSH_HIGHLIGHT_STYLES[path_pathseparator]=yellow
+        ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=yellow
         ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
         ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue,bold
         ZSH_HIGHLIGHT_STYLES[command-substitution]=none
@@ -180,10 +181,10 @@ if [ "$color_prompt" = yes ]; then
         ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=magenta,bold
         ZSH_HIGHLIGHT_STYLES[assign]=none
         ZSH_HIGHLIGHT_STYLES[redirection]=fg=blue,bold
-        ZSH_HIGHLIGHT_STYLES[comment]=fg=black,bold
+        ZSH_HIGHLIGHT_STYLES[comment]=fg=green,bold
         ZSH_HIGHLIGHT_STYLES[named-fd]=none
         ZSH_HIGHLIGHT_STYLES[numeric-fd]=none
-        ZSH_HIGHLIGHT_STYLES[arg0]=fg=white
+        ZSH_HIGHLIGHT_STYLES[arg0]=fg=cyan
         ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=red,bold
         ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
         ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg=green,bold
@@ -192,9 +193,16 @@ if [ "$color_prompt" = yes ]; then
         ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
         ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
     fi
+
+    # enable autosuggestions
+    if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+        . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+    fi
 else
     PROMPT='${debian_chroot:+($debian_chroot)}%n@%m:%~%(#.#.$) '
 fi
+
 unset color_prompt force_color_prompt
 
 toggle_oneline_prompt() {
@@ -236,25 +244,18 @@ precmd() {
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 
-    alias reload='. ~/.zshrc'
-
-    alias ..='cd ..'
-
-    alias c='clear'
-
+    alias reload=". ~/.zshrc"
+    alias ..="cd .."
+    alias c="clear"
     alias cp="cp --recursive --preserve=all --verbose"
     alias mv="mv --no-clobber --verbose"
+    alias l="clear && ls --almost-all -C --ignore='lost+found'"
+    alias ll="clear && ls --almost-all -C --no-group -l --ignore='lost+found'"
+    alias ls="clear && ls --color=auto --human-readable --sort='extension' --ignore='lost+found'"
+    alias t="clear && tree -aAc"
+    alias tt="clear && tree -aAcDgpRu"
 
-    alias l="clear && ls --almost-all -C --ignore="lost+found""
-    alias ll="clear && ls --almost-all -C --no-group -l --ignore="lost+found""
-    alias ls="clear && ls --color=auto --human-readable --sort="extension" --ignore="lost+found""
-
-    alias t='clear && tree -aAc'
-    alias tt='clear && tree -aAcDgpRu'
-
-
-    export LS_COLORS="$LS_COLORS:ow=30;44:" # fix ls color for folders with 777 permissions
-
+    # Less colors for man pages
     export LESS_TERMCAP_mb=$'\E[1;31m'  # begin blink
     export LESS_TERMCAP_md=$'\E[1;94m'  # begin bold
     export LESS_TERMCAP_me=$'\E[0m'     # reset bold/blink
@@ -263,12 +264,29 @@ if [ -x /usr/bin/dircolors ]; then
     export LESS_TERMCAP_us=$'\E[1;32m'  # begin underline
     export LESS_TERMCAP_ue=$'\E[0m'     # reset underline
 
-    # GPG
-    export GPG_TTY=$(tty)
-
     # Take advantage of $LS_COLORS for completion as well
     zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-    zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+    zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;36'
+    LS_COLORS="di=36:ln=35:so=31:pi=33:ex=32:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+
+fi
+
+# enable auto-suggestions based on the history
+if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    # change suggestion color
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
+fi
+
+# NOTE: UNDER REVIEW
+# enable command-not-found if the command is available
+# if [ -x /usr/lib/command-not-found ]; then
+#     . /usr/lib/command-not-found
+# fi
+
+# enable command-not-found if installed
+if [ -f /etc/zsh_command_not_found ]; then
+    . /etc/zsh_command_not_found
 fi
 
 # Alias definitions.
@@ -290,16 +308,4 @@ fi
 # ~/.bash_exports, instead of adding them here directly.
 if [ -f ~/.bash_snippets ]; then
     . ~/.bash_snippets
-fi
-
-# enable auto-suggestions based on the history
-if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    # change suggestion color
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
-fi
-
-# enable command-not-found if installed
-if [ -f /etc/zsh_command_not_found ]; then
-    . /etc/zsh_command_not_found
 fi
