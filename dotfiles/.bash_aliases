@@ -43,6 +43,13 @@ alias restart-ufw="sudo systemctl restart ufw.service"
 alias status-ufw-v="sudo ufw status verbose"
 alias status-ufw-n="sudo ufw status numbered"
 
+##### UniFi Network Application:
+##### Description:
+# alias start-unifi="sudo systemctl start unifi.service"
+# alias stop-unifi="sudo systemctl stop unifi.service"
+alias status-unifi="systemctl status unifi.service"
+alias restart-unifi="sudo systemctl restart unifi.service"
+
 ##### Bash:
 ##### Description:
 alias rm-bash_history="rm $HOME/.bash_history"
@@ -126,7 +133,7 @@ alias fgrep="fgrep --color=auto"
 
 ##### ifconfig.co:
 ##### Description:
-alias ifconfigco="curl ifconfig.co/json"
+alias ifconfigco="curl -s ifconfig.co/json"
 
 ##### Lnav:
 ##### Description:
@@ -221,6 +228,7 @@ alias th="tmux attach -t th-session || tmux new -s th-session \; split-window -h
 alias tv="tmux attach -t tv-session || tmux new -s tv-session \; split-window -v \; select-pane -t 1"
 alias tn="tmux attach -t tn-session || tmux new -s tn-session \; split-window -v \; split-window -h \; select-pane -t 1 \; split-window -h \; select-pane -t 1"
 alias tm="tmux attach -t temp-session || tmux new -s temp-session \; split-window -h \; select-pane -t 1"
+
 alias ts-kill="tmux kill-session -t tm-session"
 alias th-kill="tmux kill-session -t th-session"
 alias tm-kill="tmux kill-session -t temps-session"
