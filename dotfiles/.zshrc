@@ -105,7 +105,7 @@ fi
 
 configure_prompt() {
     prompt_color='%F{#CC0000}'  #red
-    user_color='%F{#F2F2F2)'    #white
+    user_color='%F{#F2F2F2}'    #white
     symbol_color='%F{#EEBC1D}'  #yellow
     prompt_symbol=@
     host_color='%F{#49B9C7}'    #cyan
@@ -118,7 +118,7 @@ configure_prompt() {
     [ "$EUID" -eq 0 ] && prompt_symbol=@
     case "$PROMPT_ALTERNATIVE" in
     twoline)
-        PROMPT=$'%B'$prompt_color$'┌──${debian_chroot:+($debian_chroot)──}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%b'$user_color$'}%n'$symbol_color$''$prompt_symbol$'%B'$host_color$'%m'$prompt_color$')-['$path_color$'%(6~.%-1~/…/%4~.%5~)'$prompt_color$']\n└─%(#.'$prompt_color$'#.%b'$end_color$'$)'$reset$' '
+        PROMPT=$'%B'$prompt_color$'┌──${debian_chroot:+($debian_chroot)──}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%b'$user_color$'%n'$symbol_color$''$prompt_symbol$'%B'$host_color$'%m'$prompt_color$')-['$path_color$'%(6~.%-1~/…/%4~.%5~)'$prompt_color$']\n└─%(#.'$prompt_color$'#.%b'$end_color$'$)'$reset$' '
         # Right-side prompt with exit codes and background processes
         #RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
         ;;
