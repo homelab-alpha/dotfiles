@@ -161,7 +161,7 @@ fi
 
 # Snippets definitions.
 # You may want to put all your additions into a separate file like
-# ~/.bash_exports, instead of adding them here directly.
+# ~/.bash_snippets, instead of adding them here directly.
 if [ -f ~/.bash_snippets ]; then
     . ~/.bash_snippets
 fi
