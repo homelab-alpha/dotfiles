@@ -76,9 +76,9 @@ We've made it easy for you to file new issues.
 ### No external contributions are currently being accepted for this project
 
 We value your contribution. We want to make it as easy as possible to submit
-your contributions to the Homelab-Alpha Dotfiles repository.
-Changes to the dotfiles are handled through pull requests against
-the `main` branch. To learn how to contribute, see [contributing].
+your contributions to the Homelab-Alpha Dotfiles repository. Changes to the
+Dotfiles are handled through pull requests against the `main` branch. To learn
+how to contribute, see [contributing].
 
 ## Reporting Vulnerabilities
 
@@ -176,9 +176,9 @@ the [license] agreement.
   https://github.com/homelab-alpha/dotfiles/issues/new?&template=security_report.md
 [give feedback]:
   https://github.com/homelab-alpha/dotfiles/discussions/categories/feedback
-[ideas]: https://github.com/homelab-alpha/dotUpdated: README
-
-modified: README.md
+[ideas]: https://github.com/homelab-alpha/dotfiles/discussions/categories/ideas
+[feature request]:
+  https://github.com/homelab-alpha/dotfiles/discussions/categories/feature-requests
 [contributing]: CONTRIBUTING.md
 [Homelab-Alpha's contact]: https://homelab-alpha.nl/contact
 [license]: LICENSE.md
