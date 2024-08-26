@@ -73,8 +73,6 @@ We've made it easy for you to file new issues.
 
 ## Contribute to Homelab-Alpha Dotfiles repository
 
-### No external contributions are currently being accepted for this project
-
 We value your contribution. We want to make it as easy as possible to submit
 your contributions to the Homelab-Alpha Dotfiles repository. Changes to the
 Dotfiles are handled through pull requests against the `main` branch. To learn
