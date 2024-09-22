@@ -1,0 +1,42 @@
+# Export:
+# Syntax: export test=you_did_it_congratulations
+
+# Dart-Sass
+export PATH=$PATH:/usr/local/dart-sass
+
+# Go-lang
+export PATH=$PATH:/usr/local/go/bin
+
+# GPG
+export GPG_TTY=$(tty)
+
+# Hugo
+export PATH=$PATH:/usr/local/hugo-extended
+
+# Set editor for nano
+export EDITOR=nano
+
+# Setting for the new UTF-8 terminal support
+export LANGUAGE DEFAULT=en_US:en
+export LANG DEFAULT=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LC_NUMERIC DEFAULT=en_US.UTF-8
+export LC_TIME DEFAULT=en_US.UTF-8
+export LC_MONETARY DEFAULT=en_US.UTF-8
+export LC_PAPER DEFAULT=en_US.UTF-8
+export LC_NAME DEFAULT=en_US.UTF-8
+export LC_ADDRESS DEFAULT=en_US.UTF-8
+export LC_TELEPHONE DEFAULT=en_US.UTF-8
+export LC_MEASUREMENT DEFAULT=en_US.UTF-8
+export LC_IDENTIFICATION DEFAULT=en_US.UTF-8
+export PAPERSIZE DEFAULT=letter
+
+# man Using Color with less
+export LESS_TERMCAP_mb=$'\E[1;31m'  # begin blink
+export LESS_TERMCAP_md=$'\E[1;94m'  # begin bold
+export LESS_TERMCAP_me=$'\E[0m'     # reset bold/blink
+export LESS_TERMCAP_so=$'\E[01;33m' # begin reverse video
+export LESS_TERMCAP_se=$'\E[0m'     # reset reverse video
+export LESS_TERMCAP_us=$'\E[1;32m'  # begin underline
+export LESS_TERMCAP_ue=$'\E[0m'     # reset underline
