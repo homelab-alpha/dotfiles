@@ -2,8 +2,8 @@
 
 # Script Name: dotfiles_installer.sh
 # Author: GJS (homelab-alpha)
-# Date: 2024-06-05T08:43:12+02:00
-# Version: 1.0.1
+# Date: 2024-10-28T08:21:31+01:00
+# Version: 1.1.0
 
 # Description:
 # This script manages the installation and uninstallation of dotfiles. It backs
@@ -38,7 +38,7 @@ create_backup() {
     mkdir -p "$backup_dir"
 
     # Loop through each file and check if it exists before copying
-    for file in ~/.bash_* ~/.bashrc ~/.gitconfig ~/.nano ~/.nanorc ~/.profile ~/.selected_editor ~/.tmux.conf ~/.vimrc ~/.zshrc; do
+    for file in ~/.bash_* ~/.bash-* ~/.bashrc ~/.gitconfig ~/.nano ~/.nanorc ~/.profile ~/.selected_editor ~/.tmux.conf ~/.vimrc ~/.zshrc; do
         if [ -e "$file" ]; then
             cp -r "$file" "$backup_dir" || {
                 echo "Error: Unable to create backup for $file" >&2
@@ -66,7 +66,7 @@ install_dotfiles() {
             cp "$HOME/dotfiles/dotfiles/.tmux.conf" "$HOME" &&
             cp "$HOME/dotfiles/dotfiles/.vimrc" "$HOME" &&
             cp "$HOME/dotfiles/dotfiles/.zshrc" "$HOME" &&
-            cp -r "$HOME/dotfiles/.bash_script" "$HOME" &&
+            cp -r "$HOME/dotfiles/.bash-script" "$HOME" &&
             cp -r "$HOME/dotfiles/.nano" "$HOME" &&
             if [ ! -d "$HOME/.versioning" ]; then
                 mkdir "$HOME/.versioning"
@@ -88,7 +88,7 @@ backup_files() {
     mkdir -p "$backup_dir"
 
     # Loop through each file and check if it exists before copying
-    for file in ~/.bash_* ~/.bashrc ~/.gitconfig ~/.nano ~/.nanorc ~/.profile ~/.selected_editor ~/.tmux.conf ~/.vimrc ~/.zshrc; do
+    for file in ~/.bash_* ~/.bash-* ~/.bashrc ~/.gitconfig ~/.nano ~/.nanorc ~/.profile ~/.selected_editor ~/.tmux.conf ~/.vimrc ~/.zshrc; do
         if [ -e "$file" ]; then
             cp -r "$file" "$backup_dir" || {
                 echo "Error: Unable to create backup for $file" >&2
@@ -104,7 +104,7 @@ backup_files() {
 
 # Function to remove dotfiles
 remove_dotfiles() {
-    rm -rf ~/.bash_* ~/.bashrc ~/.gitconfig ~/.nano ~/.nanorc ~/.profile ~/.selected_editor ~/.tmux.conf ~/.vimrc ~/.zshrc ||
+    rm -rf ~/.bash_* ~/.bash-* ~/.bashrc ~/.gitconfig ~/.nano ~/.nanorc ~/.profile ~/.selected_editor ~/.tmux.conf ~/.vimrc ~/.zshrc ||
         {
             echo "Error: Unable to remove dotfiles" >&2
             return 1
