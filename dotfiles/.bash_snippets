@@ -13,8 +13,8 @@ function targzip() {
   fi
 
   local source="$1"
-  local timestamp=$(date +'%b %d, %Y - %H%M%S')
-  local tmpFile="${source%/} [$timestamp].tar"
+  local timestamp=$(date +'%b_%d_%Y_%H_%M_%S' | tr '[:upper:]' '[:lower:]')
+  local tmpFile="${source%/}_$timestamp.tar"
   local compressedFile="$tmpFile.gz"
 
   # tar --create --file="$tmpFile" --verify --verbose "$source" || return 1
@@ -58,9 +58,9 @@ function targzip() {
 # Usage example: tarzip /path/to/folder
 function tarzip() {
   local input_folder="$1"
-  local timestamp="$(date +'%b %d, %Y - %H%M%S')"
-  local tmp_file="${input_folder%/} [$timestamp].tar"
-  local zip_file="${input_folder%/} [$timestamp].tar.zip"
+  local timestamp="$(date +'%b_%d_%Y_%H_%M_%S' | tr '[:upper:]' '[:lower:]')"
+  local tmp_file="${input_folder%/}_$timestamp.tar"
+  local zip_file="${input_folder%/}_$timestamp.tar.zip"
 
   # Create a .tar archive
   echo ""
