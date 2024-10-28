@@ -34,7 +34,7 @@ check_git() {
 
 # Function to create a backup directory and backup files
 create_backup() {
-    local backup_dir="$HOME/dotfiles_backup/before_installation"
+    local backup_dir="$HOME/dotfiles-backup/before-installation"
     mkdir -p "$backup_dir"
 
     # Loop through each file and check if it exists before copying
@@ -84,7 +84,7 @@ install_dotfiles() {
 
 # Function to backup files before uninstallation
 backup_files() {
-    local backup_dir="$HOME/dotfiles_backup/before_uninstallation"
+    local backup_dir="$HOME/dotfiles-backup/before-uninstallation"
     mkdir -p "$backup_dir"
 
     # Loop through each file and check if it exists before copying
@@ -114,7 +114,7 @@ remove_dotfiles() {
 
 # Function to restore backup files
 restore_backup() {
-    local backup_dir="$HOME/dotfiles_backup/before_installation"
+    local backup_dir="$HOME/dotfiles-backup/before-installation"
     cp -a "$backup_dir"/. "$HOME" || {
         echo "Error: Unable to restore backup" >&2
         exit 1
