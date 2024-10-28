@@ -1,8 +1,8 @@
 # Define directory paths.
-log_dir="/var/log"
 docker_dir="/docker"
+log_dir="/var/log"
+bash_script_dir="$HOME/.bash-script"
 downloads_dir="$HOME/Downloads"
-bash_script_dir="$HOME/.bash_script"
 
 ##### Global
 
@@ -63,9 +63,9 @@ alias boxes-ls="virsh -c qemu:///session list --all"
 ##### Change Directory:
 ##### Description:
 alias ..="cd .."
-alias cdbash="cd $HOME/.bash_script"
+alias cdbash="cd $bash_script_dir"
 alias cddocker="cd $docker_dir/"
-alias cddownloads="cd $HOME/Downloads"
+alias cddownloads="cd $downloads_dir"
 alias cdlog="cd $log_dir"
 alias cdssh="cd $HOME/.ssh"
 alias cdssl="cd $HOME/ssl"
@@ -124,6 +124,10 @@ alias vdir="vdir --color=auto"
 ##### Find:
 ##### Description:
 alias f="clear && find . | grep "
+
+##### Go
+##### Description:
+alias go-telemetry-off="go telemetry off"
 
 ##### Grep:
 ##### Description:
@@ -308,8 +312,9 @@ alias install-hugo="$bash_script_dir/install_latest_hugo.sh"
 alias install-jetbrains-mono="$bash_script_dir/install_latest_jetbrains_mono.sh"
 alias new-gpg-key-pair="$bash_script_dir/gpg_keygen_script.sh"
 alias new-ssh-key-pair="$bash_script_dir/ssh_keygen_script.sh"
+alias upgrade-hugo="install-dart-sass && install-go && install-hugo"
 alias userid="$bash_script_dir/user_accounts_info.sh"
 
 ##### Trim
 ##### Description:
-alias trim="sudo fstrim --verbose"
+alias trim="sudo fstrim / --verbose"
