@@ -36,9 +36,10 @@
 	br = branch
 	ch = checkout
 	co = commit
-	st = status
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	pushfwl = push --force-with-lease
+	sig = log --show-signature
+	st = status
 
 [credential]
 	helper = cache --timeout=3600
