@@ -36,6 +36,7 @@
 	br = branch
 	ch = checkout
 	co = commit
+	git-amend = commit --amend
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	pushfwl = push --force-with-lease
 	sig = log --show-signature
