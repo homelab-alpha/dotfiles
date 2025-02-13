@@ -73,10 +73,7 @@ We've made it easy for you to file new issues.
 
 ## Contribute to Homelab-Alpha Dotfiles repository
 
-We value your contribution. We want to make it as easy as possible to submit
-your contributions to the Homelab-Alpha Dotfiles repository. Changes to the
-Dotfiles are handled through pull requests against the `main` branch. To learn
-how to contribute, see [contributing].
+No external contributions are currently being accepted for this project.
 
 ## Reporting Vulnerabilities
 
@@ -177,6 +174,5 @@ the [license] agreement.
 [ideas]: https://github.com/homelab-alpha/dotfiles/discussions/categories/ideas
 [feature request]:
   https://github.com/homelab-alpha/dotfiles/issues/new?assignees=homelab-alpha&labels=feature+request&projects=&template=feature_request.yml
-[contributing]: CONTRIBUTING.md
 [Homelab-Alpha's contact]: https://homelab-alpha.nl/contact
 [license]: LICENSE.md
