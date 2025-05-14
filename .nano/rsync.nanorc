@@ -4,4 +4,3 @@ color cyan "(log\ format|syslog\ facility|timeout)"
 color yellow "(path|comment|exclude)"
 color brightyellow  start="\[" end="\]"
 color green "#.*$"
-
