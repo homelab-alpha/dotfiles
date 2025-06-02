@@ -244,31 +244,10 @@ precmd() {
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 
-    alias reload=". ~/.zshrc"
-    alias ..="cd .."
-    alias c="clear"
-    alias cp="cp --recursive --preserve=all --verbose"
-    alias mv="mv --no-clobber --verbose"
-    alias l="clear && ls --almost-all -C --ignore='lost+found'"
-    alias ll="clear && ls --almost-all -C --no-group -l --ignore='lost+found'"
-    alias ls="clear && ls --color=auto --human-readable --sort='extension' --ignore='lost+found'"
-    alias t="clear && tree -aAc"
-    alias tt="clear && tree -aAcDgpRu"
-
-    # Less colors for man pages
-    export LESS_TERMCAP_mb=$'\E[1;31m'  # begin blink
-    export LESS_TERMCAP_md=$'\E[1;94m'  # begin bold
-    export LESS_TERMCAP_me=$'\E[0m'     # reset bold/blink
-    export LESS_TERMCAP_so=$'\E[01;33m' # begin reverse video
-    export LESS_TERMCAP_se=$'\E[0m'     # reset reverse video
-    export LESS_TERMCAP_us=$'\E[1;32m'  # begin underline
-    export LESS_TERMCAP_ue=$'\E[0m'     # reset underline
-
     # Take advantage of $LS_COLORS for completion as well
     zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
     zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;36'
     LS_COLORS="di=36:ln=35:so=31:pi=33:ex=32:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
-
 fi
 
 # enable auto-suggestions based on the history
@@ -295,6 +274,8 @@ fi
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+alias reload=". ~/.zshrc"
 
 # Exports definitions.
 # You may want to put all your additions into a separate file like

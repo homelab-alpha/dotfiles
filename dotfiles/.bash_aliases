@@ -1,6 +1,7 @@
 # Define directory paths.
 docker_dir="/docker"
 log_dir="/var/log"
+
 bash_script_dir="$HOME/.bash-script"
 downloads_dir="$HOME/Downloads"
 
@@ -185,6 +186,7 @@ alias hash-sha512="openssl passwd -6"
 alias hash-apr1="openssl passwd -apr1"
 alias hash-aixmd5="openssl passwd -aixmd5"
 alias hash-password-sha256="echo $1 -n | shasum -a 256"
+alias hash-bcrypt="htpasswd -bnBC 10"
 
 ##### Ping address:
 ##### Description:
