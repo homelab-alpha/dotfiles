@@ -1,14 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "timezone": "Europe/Amsterdam",
-  "schedule": "before 5am every weekday",
-  "extends": [
-    "config:recommended",
-    "schedule:weekly",
-    "group:allNonMajor",
-    ":automergeMinor",
-    ":automergePatch"
-  ],
+  "schedule": ["* 9-17 * * 1-7"],
+  "extends": ["config:recommended", ":automergeMinor", ":automergePatch"],
   "assignees": ["homelab-alpha"],
   "rangeStrategy": "bump",
   "ignoreDeps": [],
