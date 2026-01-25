@@ -1,9 +1,0 @@
-{
-  "threshold": 0,
-  "reporters": ["consoleFull"],
-  "ignore": [
-    "**/github/workspace/dotfiles_installer.sh**",
-    "**/tmp/lint/dotfiles_installer.sh**"
-  ],
-  "absolute": true
-}
