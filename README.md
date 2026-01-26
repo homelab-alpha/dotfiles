@@ -1,10 +1,10 @@
 # Dotfiles
 
 [![Super Linter](https://github.com/homelab-alpha/dotfiles/actions/workflows/super_linter.yml/badge.svg)](https://github.com/homelab-alpha/dotfiles/actions/workflows/super_linter.yml)
-[![Last commit](https://img.shields.io/github/last-commit/homelab-alpha/dotfiles?style=flat&logo=github&logoColor=96a1a9&label=Last%20commit&labelColor=313A41&color=BA935B&cacheSeconds=3600)](https://github.com/homelab-alpha/dotfiles/commits/main/)
-[![Repo Size](https://img.shields.io/github/repo-size/homelab-alpha/dotfiles?style=flat&logo=github&logoColor=96a1a9&label=Repo%20size&labelColor=313A41&color=BA935B&cacheSeconds=3600)](https://github.com/homelab-alpha/dotfiles/tree/main?tab=readme-ov-file#dotfiles)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-3.0-313A41?style=flat&logo=contributorcovenant&logoColor=96a1a9&&labelColor=313A41&color=BA935B)](https://github.com/homelab-alpha/dotfiles/blob/main/CODE_OF_CONDUCT.md)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-313A41?style=flat&logo=conventionalcommits&logoColor=96a1a9&&labelColor=313A41&color=BA935B)](https://conventionalcommits.org)
+[![Last commit](https://img.shields.io/github/last-commit/homelab-alpha/dotfiles?style=flat&logo=github&logoColor=96a1a9&label=Last%20commit&labelColor=313A41&color=3955CD&cacheSeconds=3600)](https://github.com/homelab-alpha/dotfiles/commits/main/)
+[![Repo Size](https://img.shields.io/github/repo-size/homelab-alpha/dotfiles?style=flat&logo=github&logoColor=96a1a9&label=Repo%20size&labelColor=313A41&color=3955CD&cacheSeconds=3600)](https://github.com/homelab-alpha/dotfiles/tree/main?tab=readme-ov-file#dotfiles)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-3.0-313A41?style=flat&logo=contributorcovenant&logoColor=96a1a9&&labelColor=313A41&color=3955CD)](https://github.com/homelab-alpha/dotfiles/blob/main/CODE_OF_CONDUCT.md)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-313A41?style=flat&logo=conventionalcommits&logoColor=96a1a9&&labelColor=313A41&color=3955CD)](https://conventionalcommits.org)
 
 Welcome to the Homelab-Alpha Dotfiles repository!
 
