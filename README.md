@@ -172,4 +172,4 @@ See the [LICENSE] file for more details.
 [security report]: https://github.com/homelab-alpha/dotfiles/issues/new?assignees=homelab-alpha&labels=security&projects=&template=security_report.yml
 [give feedback]: https://github.com/homelab-alpha/dotfiles/discussions/categories/feedback
 [feature request]: https://github.com/homelab-alpha/dotfiles/discussions/categories/feature-request
-[LICENSE]: https://github.com/homelab-alpha/dotfiles/blob/main/LICENSE.md
+[LICENSE]: https://github.com/homelab-alpha/dotfiles/blob/main/LICENSE
