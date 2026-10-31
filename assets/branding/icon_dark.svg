@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-labelledby="t">
+  <title id="t">dotfiles app icon</title>
+  <rect width="1024" height="1024" rx="224" fill="#1C1C1E"/>
+  <g transform="translate(2 192) scale(10)"><path d="M30 8 H54 L72 26 V56 H30 Z M54 8 V26 H72" fill="none" stroke="#F5F5F7" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="43" cy="42" r="6.5" fill="#30D158"/></g>
+</svg>
