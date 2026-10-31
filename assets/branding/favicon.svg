@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>dotfiles</title>
+  <style>
+    .line { stroke: #1D1D1F; }
+    .dot { fill: #34C759; }
+    @media (prefers-color-scheme: dark) {
+      .line { stroke: #F5F5F7; }
+      .dot { fill: #30D158; }
+    }
+  </style>
+  <path class="line" d="M15 8 H36 L48 20 V56 H15 Z M36 8 V20 H48" fill="none" stroke-width="6"
+    stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="dot" cx="25" cy="40" r="5.5"/>
+</svg>
