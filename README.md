@@ -60,7 +60,7 @@ consistent: Bash, Zsh, Vim, tmux, nano, and Git. The menu-driven installer
 new ones, and it can restore the backups when you uninstall.
 
 More documentation is on the
-[Homelab-Alpha documentation site](https://homelab-alpha.nl/docs/dotfiles/).
+[Homelab-Alpha documentation site](https://homelab-alpha.nl/dotfiles/).
 
 ## Features
 
