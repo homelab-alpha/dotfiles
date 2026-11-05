@@ -43,6 +43,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - chore(repo): sync the latest blueprint updates [96d50dc](https://github.com/homelab-alpha/dotfiles/commit/96d50dce232f64357fa5e4edf334a710eb30f1d1) by [@homelab-alpha](https://github.com/homelab-alpha)
 - chore(workflows): replace deny-licenses with allow-licenses [0e0e9ad](https://github.com/homelab-alpha/dotfiles/commit/0e0e9ad5139c9cebadc9c6254fbcd5665196bba2) by [@homelab-alpha](https://github.com/homelab-alpha)
 - chore(blueprint): sync with the blueprint [d063d7c](https://github.com/homelab-alpha/dotfiles/commit/d063d7c2a9811ba203d08408d69422d34eec2268) by [@homelab-alpha](https://github.com/homelab-alpha)
+- ci(workflows): request a reviewer on bot PRs [00bc580](https://github.com/homelab-alpha/dotfiles/commit/00bc58047b1ef4d4e2419b71ab2bc05709dcd61e) by [@homelab-alpha](https://github.com/homelab-alpha)
+- chore(github): sync Hugo and Dart Sass rules [db0c65b](https://github.com/homelab-alpha/dotfiles/commit/db0c65b144395f9581e6909aed027e4612157082) by [@homelab-alpha](https://github.com/homelab-alpha)
+- chore(github): sync runners, Renovate, and linters [12cb7c6](https://github.com/homelab-alpha/dotfiles/commit/12cb7c6a2d2463fc21f43f71faebd176793c3691) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Deprecated
 
