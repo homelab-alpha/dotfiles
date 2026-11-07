@@ -48,6 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - chore(github): sync runners, Renovate, and linters [12cb7c6](https://github.com/homelab-alpha/dotfiles/commit/12cb7c6a2d2463fc21f43f71faebd176793c3691) by [@homelab-alpha](https://github.com/homelab-alpha)
 - ci(workflows): run workflows for bots [f2d8543](https://github.com/homelab-alpha/dotfiles/commit/f2d8543607d72946ff5307ada992b03925d17327) by [@homelab-alpha](https://github.com/homelab-alpha)
 - ci(workflows): allow BlueOak-1.0.0 license [a6b55f1](https://github.com/homelab-alpha/dotfiles/commit/a6b55f1248866c9cf3e2a1e773d4cbe16c9f76d8) by [@homelab-alpha](https://github.com/homelab-alpha)
+- chore(labels): add dependency update labels [041ee8f](https://github.com/homelab-alpha/dotfiles/commit/041ee8fda8bb01c8d039e774c5ba036c48c996e5) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Deprecated
 
