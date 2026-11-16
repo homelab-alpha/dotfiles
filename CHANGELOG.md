@@ -55,6 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - docs: move and update AI contribution policy [d92c35e](https://github.com/homelab-alpha/dotfiles/commit/d92c35e10f0b34821d83546f845d3476f2d59c8f) by [@homelab-alpha](https://github.com/homelab-alpha)
 - chore: sync files with the blueprint [052e7a1](https://github.com/homelab-alpha/dotfiles/commit/052e7a1906ddb5467b6c59371cb09c7b6bf2e818) by [@homelab-alpha](https://github.com/homelab-alpha)
 - chore(workflows): allow the PSF-2.0 license [8b89434](https://github.com/homelab-alpha/dotfiles/commit/8b89434f65802b11dd39cb63a934c63319bfb459) by [@homelab-alpha](https://github.com/homelab-alpha)
+- chore(workflows): allow more MIT-like licenses [c9f4640](https://github.com/homelab-alpha/dotfiles/commit/c9f46403f29557baf95d223a7d6ca82e12cfc512) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Deprecated
 
