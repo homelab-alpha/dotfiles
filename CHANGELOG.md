@@ -78,6 +78,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix(changelog): remove the date from Unreleased [8852779](https://github.com/homelab-alpha/dotfiles/commit/8852779582e3e80f062aa43ec0e648235d520c1b) by [@homelab-alpha](https://github.com/homelab-alpha)
 - fix(changelog): remove the Unreleased link [642689e](https://github.com/homelab-alpha/dotfiles/commit/642689eed21c5382e8fbfac01e7c42241f3e8737) by [@homelab-alpha](https://github.com/homelab-alpha)
 - fix(workflow): do not draft Renovate PRs [eed3611](https://github.com/homelab-alpha/dotfiles/commit/eed3611422970877e283116fbf47a5b5d233ec71) by [@homelab-alpha](https://github.com/homelab-alpha)
+- fix(renovate): remove invalid security rule that disabled grouping [d1e4ad7](https://github.com/homelab-alpha/dotfiles/commit/d1e4ad7caa94f671d9a140e38b14980e894e9018) by [@homelab-alpha](https://github.com/homelab-alpha)
+- fix(renovate): label all updates in a group [c9d2744](https://github.com/homelab-alpha/dotfiles/commit/c9d27440e640014db7b1a16d9b2a0592c23a7080) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Security
 
