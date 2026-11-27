@@ -11,10 +11,10 @@
 [![CodeQL](https://github.com/homelab-alpha/dotfiles/raw/badges/codeql.svg)](https://github.com/homelab-alpha/dotfiles/actions/workflows/codeql.yml)
 [![Last commit](https://github.com/homelab-alpha/dotfiles/raw/badges/last_commit.svg)](https://github.com/homelab-alpha/dotfiles/commits/main/)
 [![Repo size](https://github.com/homelab-alpha/dotfiles/raw/badges/repo_size.svg)](https://github.com/homelab-alpha/dotfiles/tree/main)
-[![Changelog](https://github.com/homelab-alpha/dotfiles/raw/badges/changelog.svg)](https://github.com/homelab-alpha/dotfiles/blob/main/CHANGELOG.md)
-[![Contributor Covenant](https://github.com/homelab-alpha/dotfiles/raw/badges/contributor_covenant.svg)](https://github.com/homelab-alpha/dotfiles/blob/main/CODE_OF_CONDUCT.md)
-[![Conventional Commits](https://github.com/homelab-alpha/dotfiles/raw/badges/conventional_commits.svg)](https://conventionalcommits.org)
-[![Semantic Versioning](https://github.com/homelab-alpha/dotfiles/raw/badges/semver.svg)](https://semver.org/spec/v2.0.0.html)
+[![Changelog: Keep a Changelog 1.1.0](https://github.com/homelab-alpha/dotfiles/raw/badges/changelog.svg)](https://github.com/homelab-alpha/dotfiles/blob/main/CHANGELOG.md)
+[![Contributor Covenant: 3.0](https://github.com/homelab-alpha/dotfiles/raw/badges/contributor_covenant.svg)](https://github.com/homelab-alpha/dotfiles/blob/main/CODE_OF_CONDUCT.md)
+[![Conventional Commits: 1.0.0](https://github.com/homelab-alpha/dotfiles/raw/badges/conventional_commits.svg)](https://conventionalcommits.org)
+[![Semantic Versioning: 2.0.0](https://github.com/homelab-alpha/dotfiles/raw/badges/semver.svg)](https://semver.org/spec/v2.0.0.html)
 [![License](https://github.com/homelab-alpha/dotfiles/raw/badges/license.svg)](https://github.com/homelab-alpha/dotfiles/blob/main/LICENSE)
 
 # Dotfiles
