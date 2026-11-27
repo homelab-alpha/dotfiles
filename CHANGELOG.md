@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add the `badges.yml` workflow and `.github/scripts/generate_badges.py` to render the
   README badges, including Super Linter and CodeQL, as SVG files on the `badges`
   branch
+- feat(github): add accessibility checks [f350d18](https://github.com/homelab-alpha/dotfiles/commit/f350d1824307097ae0f21503eb86439d0381796d) by [@homelab-alpha](https://github.com/homelab-alpha)
+- feat(scripts): support NO_COLOR [603e17c](https://github.com/homelab-alpha/dotfiles/commit/603e17c5ffcdd887fcb82638a83e9f11ef2e3080) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Changed
 
@@ -60,6 +62,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - chore(renovate): group docker compose images [b2d852e](https://github.com/homelab-alpha/dotfiles/commit/b2d852e3cd4039cd4360c77b1520f788309bd2ec) by [@homelab-alpha](https://github.com/homelab-alpha)
 - chore(labels): add renovate dependency labels [017bc99](https://github.com/homelab-alpha/dotfiles/commit/017bc9915740e59fabdf2158a6c8605ced282a0e) by [@homelab-alpha](https://github.com/homelab-alpha)
 - docs: add conventional commits cheatsheet [4154bbc](https://github.com/homelab-alpha/dotfiles/commit/4154bbc32dc20fc36382692a8d9aeb24bee9548c) by [@homelab-alpha](https://github.com/homelab-alpha)
+- docs(readme): add values to badge alt text [7622d65](https://github.com/homelab-alpha/dotfiles/commit/7622d65914452083233a84157e8feed82962bb9f) by [@homelab-alpha](https://github.com/homelab-alpha)
+- docs: add accessibility statement [7ec0fbe](https://github.com/homelab-alpha/dotfiles/commit/7ec0fbefcfa08318987412cf282a4b6141990dec) by [@homelab-alpha](https://github.com/homelab-alpha)
+- docs: link the accessibility statement [8487937](https://github.com/homelab-alpha/dotfiles/commit/8487937d3c7fc1b6a025b31c28dff8afffdffdf5) by [@homelab-alpha](https://github.com/homelab-alpha)
+- docs: document NO_COLOR support [84e13ed](https://github.com/homelab-alpha/dotfiles/commit/84e13ed23801a64d4031b7852d3fc1718275c876) by [@homelab-alpha](https://github.com/homelab-alpha)
+- docs: update the accessibility statement [68ccfc0](https://github.com/homelab-alpha/dotfiles/commit/68ccfc09be08ab2c764221dbfd2cfc2cc11fb068) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Deprecated
 
